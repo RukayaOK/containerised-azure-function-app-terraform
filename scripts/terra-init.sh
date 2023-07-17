@@ -2,12 +2,20 @@
 
 set -e
 
-# Global Variables
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# Helpers
+wipe="\033[1m\033[0m"
 
-# Includes
-source "${SCRIPT_DIR}"/./_helpers.sh
+_information() {
+    _color='\033[0;35m' #cyan
+    echo "${_color} $1 ${wipe}"
+}
 
+_success() {
+    _color='\033[0;32m' #green
+    echo "${_color} $1 ${wipe}"
+}
+
+# Logic
 _information "Creating JSON file for Azure account details..."
 export az_account_details="$HOME/.az_details.json"
 touch "${az_account_details}"

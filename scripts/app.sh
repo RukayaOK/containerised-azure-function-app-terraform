@@ -2,13 +2,20 @@
 
 set -e
 
-# Global Variables
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# Helpers
+wipe="\033[1m\033[0m"
 
-# Includes
-source "${SCRIPT_DIR}"/./_helpers.sh
+_information() {
+    _color='\033[0;35m' #cyan
+    echo "${_color} $1 ${wipe}"
+}
 
+_success() {
+    _color='\033[0;32m' #green
+    echo "${_color} $1 ${wipe}"
+}
 
+# Logic
 function get_terra_vars {
     _information "Retrieving Azure Container Registry Server..."
     ACR_SERVER=`terraform -chdir=${TERRAFORM_PATH} output -raw acr_server`
