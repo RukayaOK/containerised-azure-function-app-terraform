@@ -57,7 +57,7 @@ function build() {
     cd $APP_PATH
     _success "Changed to App Directory"
 
-    docker build -f -t ${ACR_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} .
+    docker build -t ${ACR_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} .
 }
 
 

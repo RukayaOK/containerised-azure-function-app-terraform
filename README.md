@@ -258,7 +258,8 @@ This will allow you to deploy your Terraform Code and Application via GitHub Act
     
     (a) The _terra-ci.yml_ pipeline that will show the Terraform resources in the plan to be created
 
-    (b) The _app-ci.yml_ pipeline that will build the Function App docker image 
+    (b) The _app-ci.yml_ pipeline that will build the Function App docker image. 
+    > This will fail if your Terraform Infrastructure has not been deployed yet.
 
 ## Deploy Terraform (GitHub Actions)
 This will allow you to deploy your Terraform Code via a GitHub Actions pipeline. 
