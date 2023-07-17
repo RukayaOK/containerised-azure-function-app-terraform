@@ -98,7 +98,12 @@ This will deploy the Infrastructure to your Azure account from your local machin
     export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
     export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
     export ARM_ACCESS_KEY="00000000-0000-0000-0000-000000000000"
+
+    export TF_VAR_ACR_NAME="testacr"
+    export TF_VAR_IMAGE_NAME="testimage"
     ```
+    > TF_VAR_ACR_NAME is the name of your desired azure container registry 
+    > TF_VAR_IMAGE_NAME is the name of your desired docker image
 
     (b) Set the environment variables in your terminal
     ```bash
@@ -208,7 +213,6 @@ This will deploy the Function App to your Azure account from your local machine.
     ```bash
     export IMAGE_TAG="latest"
     ```
-    > Note: The ACR_SERVER should be the Login Server of the Azure Container Registry your created with your Terraform Deployment.
 
     (b) Set the environment variables in your terminal
     ```bash
