@@ -25,7 +25,7 @@ resource "azurerm_linux_function_app" "main" {
     application_stack {
       docker {
         registry_url = azurerm_container_registry.main.login_server
-        image_name   = var.image_name
+        image_name   = var.IMAGE_NAME
         image_tag    = var.image_tag
       }
     }
@@ -44,7 +44,7 @@ resource "azurerm_linux_function_app" "main" {
     "DOCKER_REGISTRY_SERVER_URL"                                 = azurerm_container_registry.main.login_server
     "DOCKER_ENABLE_CI"                                           = true
     "FUNCTIONS_EXTENSION_VERSION"                                = "~4"
-    "DOCKER_CUSTOM_IMAGE_NAME"                                   = "DOCKER|${azurerm_container_registry.main.login_server}/${var.image_name}:latest"
+    "DOCKER_CUSTOM_IMAGE_NAME"                                   = "DOCKER|${azurerm_container_registry.main.login_server}/${var.IMAGE_NAME}:latest"
     "DOCKER_REGISTRY_SERVER_USERNAME"                            = null
     "DOCKER_REGISTRY_SERVER_PASSWORD"                            = null
     "WEBSITE_WEBDEPLOY_USE_SCM"                                  = true

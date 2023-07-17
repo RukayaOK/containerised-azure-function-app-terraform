@@ -15,6 +15,8 @@ env:
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
+  TF_VAR_ACR_SERVER: ${{ secrets.TF_VAR_ACR_SERVER }}
+  TF_VAR_IMAGE_NAME: ${{ secrets.TF_VAR_IMAGE_NAME }}
 
 jobs:
   terra-apply:

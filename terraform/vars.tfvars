@@ -19,7 +19,7 @@ app_service_os_type   = "Linux"
 app_service_plan_sku  = "B1"
 
 ##### AZURE CONTAINER REGISTRY #####
-acr_name = "rokacr123"
+ACR_NAME = "rokacr123"
 acr_sku  = "Standard"
 
 ##### STORAGE ACCOUNTS #####
@@ -50,7 +50,7 @@ storage_container_name                        = "rok-container-123"
 
 ##### FUNCTION APP #####
 function_app_name = "rokfuncapp123"
-image_name        = "roktestimage123"
+IMAGE_NAME        = "roktestimage123"
 image_tag         = "latest"
 
 

@@ -1,5 +1,5 @@
 resource "azurerm_container_registry" "main" {
-  name                = var.acr_name
+  name                = var.ACR_NAME
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
   sku                 = var.acr_sku
@@ -21,7 +21,7 @@ resource "azurerm_container_registry_webhook" "webhook" {
 
   service_uri = "https://${azurerm_linux_function_app.main.site_credential[0].name}:${azurerm_linux_function_app.main.site_credential[0].password}@${lower(azurerm_linux_function_app.main.name)}.scm.azurewebsites.net/api/registry/webhook"
   status      = "enabled"
-  scope       = "${var.image_name}:latest"
+  scope       = "${var.IMAGE_NAME}:${var.image_tag}"
   actions     = ["push"]
   custom_headers = {
     "Content-Type" = "application/json"

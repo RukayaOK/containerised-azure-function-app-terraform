@@ -15,7 +15,6 @@
     - [Adding new Application Variables and Secrets](#adding-new-application-variables-and-secrets)
     - [Using a Different Function App Trigger](#using-a-different-function-app-trigger)
   - [Troubleshooting](#troubleshooting)
-  - [Future Improvements](#future-improvements)
 
 ## Context
 A dockerised Azure Function App that is triggered by a timer. This function writes to an Azure Storage Account every 2 minutes.
@@ -260,7 +259,6 @@ This will allow you to deploy your Terraform Code and Application via GitHub Act
     (a) The _terra-ci.yml_ pipeline that will show the Terraform resources in the plan to be created
 
     (b) The _app-ci.yml_ pipeline that will build the Function App docker image. 
-    > This will fail if your Terraform Infrastructure has not been deployed yet so the Image Name and ACR server name cannot be retrieved.
 
 ## Deploy Terraform (GitHub Actions)
 This will allow you to deploy your Terraform Code via a GitHub Actions pipeline. 
@@ -380,6 +378,3 @@ func templates list
 1. Function App has incorrect image name 
 Error: In some cases the Function App Image will have a trailing in the Continuous Deployment configuration. 
 Solution: Temporarily change the function app _image\_name_ variable, Apply the Terraform change, correct the function app _image\_name_ it, Apply the Terraform again
-
-## Future Improvements
-1. The Image Name and Azure Container Registry Name can be set as terraform variables and then called in the scripts/app to build and deploy the docker image rather than calling the Terraform output. This will mean the CI pipeline doesn't fail if the Terraform Infrastructure doesn't exist

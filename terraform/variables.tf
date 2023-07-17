@@ -54,7 +54,7 @@ variable "app_service_plan_sku" {
 }
 
 # ##### AZURE CONTAINER REGISTRY #####
-variable "acr_name" {
+variable "ACR_NAME" {
   description = "Azure Container Registry Name"
   type        = string
 }
@@ -154,7 +154,7 @@ variable "function_app_name" {
   type        = string
 }
 
-variable "image_name" {
+variable "IMAGE_NAME" {
   description = "Container Image Name"
   type        = string
 }

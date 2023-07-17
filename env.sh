@@ -26,4 +26,6 @@ export ARM_ACCESS_KEY=""
 export APP_NAME=""
 
 # Docker variables
+export TF_VAR_ACR_NAME=""
+export TF_VAR_IMAGE_NAME=""
 export IMAGE_TAG=""

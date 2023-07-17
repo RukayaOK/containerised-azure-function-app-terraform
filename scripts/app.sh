@@ -15,17 +15,6 @@ _success() {
     echo "${_color} $1 ${wipe}"
 }
 
-# Logic
-function get_terra_vars() {
-    _information "Retrieving Azure Container Registry Server..."
-    ACR_SERVER=`terraform -chdir=${TERRAFORM_PATH} output -raw acr_server`
-    _success "Retrieved Azure Container Registry Server"
-
-    _information "Retrieving Image Name..."
-    IMAGE_NAME=`terraform -chdir=${TERRAFORM_PATH} output -raw image_name`
-    _success "Retrieved Image Name"
-}
-
 function init() {
    _information "Changing to App Directory..."
     cd $APP_PATH
@@ -51,24 +40,17 @@ function init() {
 
 function build() {
 
-    get_terra_vars
-
     _information "Changing to App Directory..."
     cd $APP_PATH
     _success "Changed to App Directory"
 
-    if [[ -z "${ACR_SERVER}"  || -z "${IMAGE_NAME}" ]]
-    then
-        docker build -t funcappimage:${IMAGE_TAG} .
-    else
-        docker build -t ${ACR_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} .
-    fi
+    _information "Building Docker Image..."
+    docker build -t "${TF_VAR_ACR_NAME}".azurecr.io/"${TF_VAR_IMAGE_NAME}":"${IMAGE_TAG}" .
+    _success "Built Docker Image"
 }
 
 
 function deploy() {
-
-    get_terra_vars
     
     _information "Logging into Azure..."
     az login \
@@ -87,7 +69,9 @@ function deploy() {
     _success "Changed to App Directory"
 
     _information "Pushing image to Azure Container Registry..."
-    az acr build --registry ${ACR_SERVER} --image ${ACR_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} .
+    az acr build \
+        --registry "${TF_VAR_ACR_NAME}".azurecr.io \
+        --image "${TF_VAR_ACR_NAME}".azurecr.io/${TF_VAR_IMAGE_NAME}:${IMAGE_TAG} .
     _success "Pushed image to Azure Container Registry"
 
     _information "Logging out of Azure..."
