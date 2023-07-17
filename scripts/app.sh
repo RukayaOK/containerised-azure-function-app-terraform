@@ -16,7 +16,7 @@ _success() {
 }
 
 # Logic
-function get_terra_vars {
+function get_terra_vars() {
     _information "Retrieving Azure Container Registry Server..."
     ACR_SERVER=`terraform -chdir=${TERRAFORM_PATH} output -raw acr_server`
     _success "Retrieved Azure Container Registry Server"
