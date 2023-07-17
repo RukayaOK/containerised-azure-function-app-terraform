@@ -1,6 +1,6 @@
 resource "azurerm_container_registry" "main" {
   name                = var.acr_name
-  resource_group_name = var.resource_group_name
+  resource_group_name = azurerm_resource_group.main.name
   location            = var.location
   sku                 = var.acr_sku
   admin_enabled       = false
@@ -15,7 +15,7 @@ resource "azurerm_role_assignment" "pull_image" {
 resource "azurerm_container_registry_webhook" "webhook" {
   # No dashes allowed in the name
   name                = "${replace(lower(azurerm_linux_function_app.main.name), "/\\W|_|\\s/", "")}webhook"
-  resource_group_name = var.resource_group_name
+  resource_group_name = azurerm_resource_group.main.name
   location            = var.location
   registry_name       = azurerm_container_registry.main.name
 
