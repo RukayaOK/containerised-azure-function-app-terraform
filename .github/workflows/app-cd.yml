@@ -1,7 +1,7 @@
 name: App Build and Push
  
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 env:
   TERRAFORM_PATH: ${{ vars.TERRAFORM_PATH }}
