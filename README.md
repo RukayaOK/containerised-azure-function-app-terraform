@@ -188,7 +188,7 @@ If you are running this project you don't need to follow there steps as the code
    
     For this example we: 
 
-    (a) Added the file _backend.py_ with a _write\_to\_storage_ function
+    (a) Added the file _logic.py_ with a _write\_to\_storage_ function
    
     (b) Updated the main function in _\_\_init\_\_.py_ to call the _write\_to\_storage_ function
 
@@ -206,8 +206,6 @@ This will deploy the Function App to your Azure account from your local machine.
     (a) Update your env.local.sh file
     example:
     ```bash
-    export ACR_SERVER="testacr.azurecr.io"
-    export IMAGE_NAME="testimage"
     export IMAGE_TAG="latest"
     ```
     > Note: The ACR_SERVER should be the Login Server of the Azure Container Registry your created with your Terraform Deployment.

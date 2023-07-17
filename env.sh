@@ -26,5 +26,4 @@ export ARM_ACCESS_KEY=""
 export APP_NAME=""
 
 # Docker variables
-export IMAGE_NAME=""
 export IMAGE_TAG=""
