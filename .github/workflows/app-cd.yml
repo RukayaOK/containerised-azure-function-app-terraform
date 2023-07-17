@@ -31,9 +31,9 @@ jobs:
       id: setup
     
     - name: Terraform Init
-        id: terra-init
-        run: |
-          make terra-init
+      id: terra-init
+      run: |
+        make terra-init
 
     - name: App Deploy Versioned
       id: deploy
