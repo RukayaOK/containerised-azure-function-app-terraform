@@ -363,9 +363,9 @@ This will allow you to deploy your Terraform Code via a GitHub Actions pipeline.
 To create a function app with a different trigger:
 
 (a) List of available templates
-    ```go
-    func templates list
-    ```
+```go
+func templates list
+```
 
 (b) Update the file __bootstrap/app-init.sh__ with the Template name
 
