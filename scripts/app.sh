@@ -57,7 +57,12 @@ function build() {
     cd $APP_PATH
     _success "Changed to App Directory"
 
-    docker build -t ${ACR_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} .
+    if [[ -z "${ACR_SERVER}"  || -z "${IMAGE_NAME}" ]]
+    then
+        docker build -t funcappimage:${IMAGE_TAG} .
+    else
+        docker build -t ${ACR_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} .
+    fi
 }
 
 
