@@ -2,6 +2,10 @@ name: App Build
  
 on:
   push:
+    paths:
+    - src
+    - scripts/app.sh
+    - Makefile
 
 env:
   TERRAFORM_PATH: ${{ vars.TERRAFORM_PATH }}
