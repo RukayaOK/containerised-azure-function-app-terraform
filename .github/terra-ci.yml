@@ -1,0 +1,30 @@
+name: CI Terraform
+
+on:
+  push:
+
+env:
+  TERRAFORM_PATH: ${{ vars.TERRAFORM_PATH }}
+  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
+
+jobs:
+  terra-plan:
+    name: CI Terraform
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@main
+        id: setup
+      
+      - name: Terraform Plan
+        id: plan
+        run: |
+          make terra-plan

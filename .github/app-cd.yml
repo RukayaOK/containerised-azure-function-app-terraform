@@ -1,0 +1,46 @@
+name: App Build and Push
+ 
+on:
+  workflow_dispatch:
+
+env:
+  TERRAFORM_PATH: ${{ vars.TERRAFORM_PATH }}
+  APP_PATH: ${{ vars.APP_PATH }}
+  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
+
+jobs:
+  app-build-and-push:
+    name: App Build and Push
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+  
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@main
+      id: setup
+    
+    - name: Terraform Init
+        id: terra-init
+        run: |
+          make terra-init
+
+    - name: App Deploy Versioned
+      id: deploy
+      run: |
+        make app-deploy
+      env: 
+        IMAGE_TAG=${{ github.sha }}
+    
+    - name: App Deploy Latest
+      id: deploy
+      run: |
+        make app-deploy
+      env: 
+        IMAGE_TAG=latest
+      
