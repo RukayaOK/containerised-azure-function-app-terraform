@@ -35,12 +35,12 @@ jobs:
       run: |
         make app-deploy
       env: 
-        IMAGE_TAG=${{ github.sha }}
+        IMAGE_TAG: ${{ github.sha }}
     
     - name: App Deploy Latest
       id: deploy
       run: |
         make app-deploy
       env: 
-        IMAGE_TAG=latest
+        IMAGE_TAG: latest
       

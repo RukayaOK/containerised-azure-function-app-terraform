@@ -35,4 +35,4 @@ jobs:
       run: |
         make app-build
       env: 
-        IMAGE_TAG=${{ github.sha }}
+        IMAGE_TAG: ${{ github.sha }}
