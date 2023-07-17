@@ -25,7 +25,7 @@ endif
 
 .PHONY: terra-bootstrap
 terra-bootstrap: terra-bootstrap-env	## Bootstrap Terraform
-	sh ./scripts/terra-init.sh
+	bash ./scripts/terra-init.sh
 
 terra-env:		## Check Terraform Environment Variables
 ifeq ($(strip $(filter $(NOGOAL), $(MAKECMDGOALS))),)
@@ -70,7 +70,7 @@ endif
 
 .PHONY: app-bootstrap
 app-bootstrap: app-boostrap-env		## Bootstrap Application
-	sh ./scripts/app.sh init
+	bash ./scripts/app.sh init
 	
 app-env:			## Check App Environment Variables
 ifeq ($(strip $(filter $(NOGOAL), $(MAKECMDGOALS))),)
@@ -79,8 +79,8 @@ endif
 
 .PHONY: app-build
 app-build: app-env		## Build Application
-	sh ./scripts/app.sh build
+	bash ./scripts/app.sh build
 
 .PHONY: app-deploy
 app-deploy: app-env		## Deploy Application
-	sh ./scripts/app.sh deploy
+	bash ./scripts/app.sh deploy
