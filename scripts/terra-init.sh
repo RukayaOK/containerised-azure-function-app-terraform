@@ -6,7 +6,7 @@ set -e
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Includes
-source "${SCRIPT_DIR}"/_helpers.sh
+source "${SCRIPT_DIR}"/./_helpers.sh
 
 _information "Creating JSON file for Azure account details..."
 export az_account_details="$HOME/.az_details.json"
