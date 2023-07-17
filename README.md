@@ -244,6 +244,11 @@ This will allow you to deploy your Terraform Code and Application via GitHub Act
     ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
     ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
     ARM_ACCESS_KEY="00000000-0000-0000-0000-000000000000"
+    TERRAFORM_BACKEND_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
+    TERRAFORM_BACKEND_RESOURCE_GROUP="test-rg"
+    TERRAFORM_BACKEND_STORAGE_ACCOUNT="testsa"
+    TERRAFORM_BACKEND_CONTAINER="teststatefiles"
+    TERRAFORM_BACKEND_STATE_FILE="test-state"
     ```
     > Note: These values are output from the Bootstrap Terraform step above. Update the ARM_SUBSCRIPTION_ID with the ID of Subscription you want to deploy your resources into.
 
