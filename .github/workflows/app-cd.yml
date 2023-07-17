@@ -38,14 +38,14 @@ jobs:
         make terra-init
 
     - name: App Deploy Versioned
-      id: deploy
+      id: deploy-versioned
       run: |
         make app-deploy
       env: 
         IMAGE_TAG: ${{ github.sha }}
     
     - name: App Deploy Latest
-      id: deploy
+      id: deploy-latest
       run: |
         make app-deploy
       env: 
