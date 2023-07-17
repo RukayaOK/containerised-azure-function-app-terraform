@@ -1,4 +1,4 @@
-name: App Build and Push
+name: App Build
  
 on:
   push:
@@ -18,8 +18,8 @@ env:
   ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
 
 jobs:
-  app-build-and-push:
-    name: App Build and Push
+  app-build:
+    name: App Build
     runs-on: ubuntu-latest
   
     steps:
