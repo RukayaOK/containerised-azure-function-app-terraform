@@ -330,7 +330,8 @@ This will allow you to deploy your Terraform Code via a GitHub Actions pipeline.
 
 ### Adding new Application Variables and Secrets
 1. Add the secret to the Key Vault 
-    (a) update the file _key\_vault.tf_ file to add your secret/variable to the key vault 
+
+   (a) update the file _key\_vault.tf_ file to add your secret/variable to the key vault 
     example: 
     ```go
     resource "azurerm_key_vault_secret" "new_var" {
@@ -366,7 +367,7 @@ This will allow you to deploy your Terraform Code via a GitHub Actions pipeline.
 
     > Note: if the secret value is sensitive you can add this into your environment variables with the prefix _TF\_VAR\__. See: https://developer.hashicorp.com/terraform/cli/config/environment-variables
 
-2. Update the App Settings of the Function App
+3. Update the App Settings of the Function App
 (a) In the _function\_app.tf_ file update the _app\_settings_ block to reference your Key Vault secrets
     example:
     ```go
@@ -374,7 +375,7 @@ This will allow you to deploy your Terraform Code via a GitHub Actions pipeline.
     ```
     > Where _NEW\_VAR\_FOR\_APP_ is the name of the environment variable your function application is expecting
 
-3. Re-run your Terraform Worklow to apply the changes
+4. Re-run your Terraform Worklow to apply the changes
 
 ### Using a Different Function App Trigger
 To create a function app with a different trigger:
