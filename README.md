@@ -259,6 +259,8 @@ This will allow you to deploy your Terraform Code and Application via GitHub Act
     TERRAFORM_BACKEND_STORAGE_ACCOUNT="testsa"
     TERRAFORM_BACKEND_CONTAINER="teststatefiles"
     TERRAFORM_BACKEND_STATE_FILE="test-state"
+    TF_VAR_ACR_NAME="testacr"
+    TF_VAR_IMAGE_NAME="testimage"
     ```
     > Note: These values are output from the Bootstrap Terraform step above. Update the ARM_SUBSCRIPTION_ID with the ID of Subscription you want to deploy your resources into.
 
