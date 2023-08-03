@@ -92,7 +92,8 @@ This will deploy the Infrastructure to your Azure account from your local machin
 1. Following the 'Bootstrap Terraform' steps above
 
 2. Set the Terraform Environment Variables
-    (a) Update the env.local.sh file
+
+   (a) Update the env.local.sh file
     The script above outputs your terraform variables. Add these into your env.local.sh file.
     Update the ARM_SUBSCRIPTION_ID with the ID of Subscription you want to deploy your resources into.
    
