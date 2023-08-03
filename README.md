@@ -390,5 +390,5 @@ func templates list
 
 ## Troubleshooting
 1. Function App has incorrect image name 
-Error: In some cases the Function App Image will have a trailing in the Continuous Deployment configuration. 
+Error: In some cases the Function App name Image will have a trailing '/' in the Continuous Deployment configuration. 
 Solution: Temporarily change the function app _image\_name_ variable, Apply the Terraform change, correct the function app _image\_name_ it, Apply the Terraform again
