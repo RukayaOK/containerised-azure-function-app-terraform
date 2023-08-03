@@ -21,7 +21,7 @@ A dockerised Azure Function App that is triggered by a timer. This function writ
 
 The application image is stored in an Azure Container Registry. 
 
-Continuous Deployment is enabled on the Function App so that each time a new version of the Function App is pushed the Azure Container Registry, the Function App is updated with the new image.
+Continuous Deployment is enabled on the Function App so that each time a new version of the Function App is pushed to the Azure Container Registry, the Function App is updated with the new image.
 
 ## Architecture
 ![](assets/function_app.png)
