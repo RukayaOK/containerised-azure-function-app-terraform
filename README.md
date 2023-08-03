@@ -93,7 +93,9 @@ This will deploy the Infrastructure to your Azure account from your local machin
 
 2. Set the Terraform Environment Variables
     (a) Update the env.local.sh file
-    The script above outputs your terraform. Add this into your env.local.sh file. And update the ARM_SUBSCRIPTION_ID with the ID of Subscription you want to deploy your resources into.
+    The script above outputs your terraform variables. Add these into your env.local.sh file.
+    Update the ARM_SUBSCRIPTION_ID with the ID of Subscription you want to deploy your resources into.
+   
     example:
     ```bash
     export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
@@ -113,7 +115,7 @@ This will deploy the Infrastructure to your Azure account from your local machin
     source env.local.sh
     ```
 
-3. Update the Terraform Code
+4. Update the Terraform Code
 
    (a) Update the _terraform.tfvars_ file with your values 
    > Note: To support Continuous Deployment the _image\_tag_ variable should be set the the same value as the tag you will push your application image with. I reccommend using the tag _latest_.
@@ -127,22 +129,22 @@ This will deploy the Infrastructure to your Azure account from your local machin
 
     > Note: This prevents a circular dependcy on the Key Vault secret
 
-4. Initialise Terraform 
+5. Initialise Terraform 
     ```go
     make terra-init
     ```
 
-5. Plan Terrafrom 
+6. Plan Terrafrom 
     ```go
     make terra-plan
     ```
 
-6. Apply Terraform 
+7. Apply Terraform 
     ```go
     make terra-apply
     ```
 
-7. Update the Terraform Code
+8. Update the Terraform Code
     In the _function\_app.tf_ file uncomment any variables in the _app\_settings_ block that reference your Key Vault secrets
 
     example:
@@ -150,14 +152,14 @@ This will deploy the Infrastructure to your Azure account from your local machin
     "STORAGE_ACCOUNT_CONNECTION_STRING" = "@Microsoft.KeyVault(VaultName=${var.key_vault_name};SecretName=${var.storage_account_connection_string_secret_name})"
     ```
 
-8. Run the Terraform Workflow again 
+9. Run the Terraform Workflow again 
     ```go
     make terra-init
     make terra-plan
     make terra-apply
     ```
 
-9. To destroy your Infrastructure 
+10. To destroy your Infrastructure 
     ```go
     make terra-destroy
     ```
